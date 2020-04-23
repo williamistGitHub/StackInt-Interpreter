@@ -29,8 +29,7 @@ while i < len(script):
         uin = int(input("? "))
         stack.append(uin)
       except:
-        print("ERROR: User input is not a valid number!", file=sys.stderr)
-        sys.exit()
+        stack.append(0)
     elif char == "+":
       stack.append(stack.pop()+stack.pop())
     elif char == "-":
@@ -46,7 +45,7 @@ while i < len(script):
       if stack.pop(0) != 0:
         i = stack.pop(0)-1
     elif char == "&":
-      stack[len(stack)] = stack[len(stack)-1]
+      stack.append(stack[-1])
     elif char == "%":
       stack = [stack[0]] + stack
   finally:
